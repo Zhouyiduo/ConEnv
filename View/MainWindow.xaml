@@ -1,0 +1,102 @@
+﻿<Window x:Class="ConEnv.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConEnv"
+        mc:Ignorable="d"
+        Title="切换环境" Height="400" Width="500">
+    <Grid>
+		
+		<Grid.RowDefinitions>
+
+			<RowDefinition  Height="30"></RowDefinition>
+			
+			<RowDefinition  Height="30"></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="30"></RowDefinition>
+			
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+
+			<ColumnDefinition Width="300"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+
+		</Grid.ColumnDefinitions>
+
+		<Menu Grid.Row="0" Grid.ColumnSpan = "2" Height="30">
+			<MenuItem Header="文件" Height="30">
+				<MenuItem Header="新建" Click="MenuItem_Click_New" ></MenuItem>
+				<MenuItem Header="打开" Click="MenuItem_Click_Open" ></MenuItem>
+				<MenuItem Header="保存" Click="MenuItem_Click_Save" ></MenuItem>
+			</MenuItem>
+		</Menu>
+
+		<ComboBox Grid.Row="1" Grid.Column="0" Height="25"  Width="300"
+			HorizontalAlignment = "Left"
+			ItemsSource ="{Binding Envs, Mode=TwoWay}"
+            SelectedItem="{Binding CurEnv,Mode=TwoWay}"
+			></ComboBox>
+		
+		
+		<Grid Grid.Row="1" Grid.Column="1">
+
+
+			<Grid.RowDefinitions>
+				<RowDefinition ></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="100"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<Button Grid.Column="0" Height="25" Width="80" HorizontalAlignment="Right"
+				Click="Btn_Clk_New_Vision"
+				>新建版本</Button>
+
+			<Button Grid.Column="1" Height="25" Width="80"
+				Click="Btn_Clk_New_Path"
+				>新建路径</Button>
+
+		</Grid>
+
+
+		<DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan = "2"
+				  ItemsSource="{ Binding Paths, Mode=TwoWay}"
+				  AutoGenerateColumns = "False"
+				  >
+			
+			<DataGrid.Columns>
+				<DataGridTextColumn Width="50" Header="描述" Binding="{Binding Des}" />
+				<DataGridTextColumn Width="10*" Header="路径" Binding="{Binding Path}"/>
+				
+			</DataGrid.Columns >
+		</DataGrid>
+
+		<Grid Grid.Row ="3" Grid.ColumnSpan="2" >
+			
+			<Grid.RowDefinitions>
+				<RowDefinition ></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="100"></ColumnDefinition>
+				<ColumnDefinition Width="100"></ColumnDefinition>
+				<ColumnDefinition Width="100"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<Button Grid.Column="1" Height="25" Width="80" 
+				Click="Btn_Clk_Set_Cur"
+				>设置当前</Button>
+
+			<Button Grid.Column="2" Height="25" Width="80" 
+				Click="Btn_Clk_Save"
+				>保存</Button>
+
+			<Button Grid.Column="3" Height="25" Width="80" 
+				Click="Btn_Clk_Close"
+				>关闭</Button>
+		</Grid>
+
+	</Grid>
+</Window>

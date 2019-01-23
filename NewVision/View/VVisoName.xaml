@@ -1,0 +1,22 @@
+﻿<Window x:Class="ConEnv.NewVision.View.VVisoName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConEnv.NewVision.View"
+        mc:Ignorable="d"
+        Title="软件版本名字" Height="80" Width="400">
+    <Grid>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="300"/>
+			<ColumnDefinition Width="100"/>
+		</Grid.ColumnDefinitions>
+
+		<TextBox Grid.Column="0" Margin="15,10,10,10" Text="{Binding VisonName}"/>
+		<Button Grid.Column="1" Margin="10,10,15,10" Click="Button_Click" >
+			确定
+		</Button>
+
+	</Grid>
+</Window>
